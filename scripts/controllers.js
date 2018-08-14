@@ -12,11 +12,24 @@ angular.module("ctrls",[])
   ]
 }])
 //创建index控制器
-.controller("index",["$scope","$rootScope",function($scope,$rootScope){
+.controller("index",["$scope","$rootScope","$http",function($scope,$rootScope,$http){
   //模拟数据
   $scope.msg="控制器获取的数据";
   //绑定num,判定被点击标题被选中状态
   $rootScope.num=0;//用于全局,它触发于navs
+  //向后台发送请求
+  $http({
+    // url:"https://moment.douban.com/api/stream/date/2017-5-11?alt=json&apikey=0bcf52793711959c236df76ba534c0d4&app_version=1.7.4&douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&format=full&udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&version=6"
+    //跨域了,从后台php发送请求
+    //解决方法:从后台发送请求,获取数据
+    url:"./api/index.php"
+    //以index.htm引用的路径来查找该文件
+    //success方法已经被淘汰,使用then方法来替代
+  // }).success(function(result){
+  }).then(function(result){
+    console.log(result.data);
+    $scope.posts=result.data.posts;//在控制台查看
+  })
 }])
 .controller("older",["$scope","$rootScope",function($scope,$rootScope){
   //模拟数据

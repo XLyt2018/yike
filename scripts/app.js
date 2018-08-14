@@ -54,7 +54,7 @@ yike.config(["$routeProvider",function($routeProvider){
   $routeProvider.when("/",{
     redirecTo:"/index"//跳转到index进行处理
   }).when("/index",{
-    templateUrl:"./views/test.html",//将要在ng-view区域显示的视图
+    templateUrl:"./views/list.html",//将要在ng-view区域显示的视图
     controller:"index"
   }).when("/older",{
     templateUrl:"./views/test.html",
