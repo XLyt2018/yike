@@ -52,24 +52,24 @@ $locationProvider.hashPrefix("");
 //配置路由
 yike.config(["$routeProvider",function($routeProvider){
   $routeProvider.when("/",{
-    redirecTo:"/index"//跳转到index进行处理
+    redirectTo:"/index"//跳转到index进行处理
   }).when("/index",{
     templateUrl:"./views/list.html",//将要在ng-view区域显示的视图
     controller:"index"
   }).when("/older",{
-    templateUrl:"./views/test.html",
+    templateUrl:"./views/list.html",
     controller:"older"
   }).when("/author",{
-    templateUrl:"./views/test.html",
+    templateUrl:"./views/author.html",
     controller:"author"
   }).when("/category",{
-    templateUrl:"./views/test.html",
+    templateUrl:"./views/category.html",
     controller:"category"
   }).when("/favourite",{
-    templateUrl:"./views/test.html",
+    templateUrl:"./views/favourite.html",
     controller:"favourite"
   }).when("/settings",{
-    templateUrl:"./views/test.html",
-    controller:"settings"
+    templateUrl:"./views/settings.html"
+    
   })
 }])
